@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Cocomo</title>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/main.js" type="text/javascript"></script>
+    </head>
+    
+    <body class="container">
+        <h1 class="center">Constructive Cost Model (Cocomo)</h1>
+                
+        <div id="mainForm">
+            <form>
+                <label for="cocomoSelector" class="inline paddingRight">Select the Cocomo:</label>
+                <select id = "cocomoSelector" onchange = "display()">
+                    <option value = "basic">Basic Cocomo</option>
+                    <option value = "intermediate">Intermediate Cocomo</option>
+                </select>
+
+                <br>
+
+                <label for="projectSelector" class="inline paddingRight">Select the type of project:</label>
+                    <select id = "projectSelector" onchange="display()">
+                        <option value = "organic">Organic</option>
+                        <option value = "semi">Semi-detached</option>
+                        <option value = "embedded">Embedded</option>
+                    </select>
+
+                <br>
+
+                <label for="klockInput" class="inline paddingRight">Enter the KLOC:</label>
+                <input id="klocInput" type="number" oninput = "display()"/>
+            </form>
+        </div>
+        <br>
+        <hr>
+        
+        <div id="intermediateCocomo" style= "display: none">
+            <table class="tab container" cellpadding="7">
+                <thead>
+                    <tr>
+                        <th>Cost Drivers</th>
+                        <th colspan="6">Ratings</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Very Low</th>
+                        <th>Low</th>
+                        <th>Normal</th>
+                        <th>High</th>
+                        <th>Very High</th>
+                        <th>Extra High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Product attributes</b></td>
+                    </tr>
+                    <tr>
+                        <td>Required software reliability</td>
+                        <td><input type="radio" name="prodAttr" value="0.75" onclick="display()" checked>0.75</td>
+                        <td><input type="radio" name="prodAttr" value="0.88" onclick="display()">0.88</td>
+                        <td><input type="radio" name="prodAttr" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="prodAttr" value="1.15" onclick="display()">1.15</td>
+                        <td><input type="radio" name="prodAttr" value="1.40" onclick="display()">1.40</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Size of application database</td>
+                        <td></td>
+                        <td><input type="radio" name="sizeOfDb" value="0.94" onclick="display()" checked>0.94</td>
+                        <td><input type="radio" name="sizeOfDb" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="sizeOfDb" value="1.08" onclick="display()">1.08</td>
+                        <td><input type="radio" name="sizeOfDb" value="1.16" onclick="display()">1.16</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Complexity of the product</td>
+                        <td><input type="radio" name="complex" value="0.70" onclick="display()" checked>0.70</td>
+                        <td><input type="radio" name="complex" value="0.85" onclick="display()">0.85</td>
+                        <td><input type="radio" name="complex" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="complex" value="1.15" onclick="display()">1.15</td>
+                        <td><input type="radio" name="complex" value="1.30" onclick="display()">1.30</td>
+                        <td><input type="radio" name="complex" value="1.65" onclick="display()">1.65</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><b>Hardware attributes</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Run-time performance constraints</td>
+                        <td></td>
+                        <td></td>                        
+                        <td><input type="radio" name="runtime" value="1.00" onclick="display()" checked>1.00</td>
+                        <td><input type="radio" name="runtime" value="1.11" onclick="display()">1.11</td>
+                        <td><input type="radio" name="runtime" value="1.30" onclick="display()">1.30</td>
+                        <td><input type="radio" name="runtime" value="1.65" onclick="display()">1.65</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Memory constraints</td>
+                        <td></td>
+                        <td></td>                        
+                        <td><input type="radio" name="memory" value="1.00" onclick="display()" checked>1.00</td>
+                        <td><input type="radio" name="memory" value="1.06" onclick="display()">1.06</td>
+                        <td><input type="radio" name="memory" value="1.21" onclick="display()">1.21</td>
+                        <td><input type="radio" name="memory" value="1.56" onclick="display()">1.56</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Volatility of the virtual machine environment</td>
+                        <td></td>                        
+                        <td><input type="radio" name="volat" value="0.87" onclick="display()" checked>0.87</td>
+                        <td><input type="radio" name="volat" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="volat" value="1.15" onclick="display()">1.15</td>
+                        <td><input type="radio" name="volat" value="1.30" onclick="display()">1.30</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Required turnabout tiime</td>
+                        <td></td>                        
+                        <td><input type="radio" name="turn" value="0.87" onclick="display()" checked>0.87</td>
+                        <td><input type="radio" name="turn" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="turn" value="1.07" onclick="display()">1.15</td>
+                        <td><input type="radio" name="turn" value="1.15" onclick="display()">1.30</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><b>Personnel attributes</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Analyst capability</td>           
+                        <td><input type="radio" name="analyst" value="1.46" onclick="display()" checked>1.46</td>
+                        <td><input type="radio" name="analyst" value="1.19" onclick="display()">1.19</td>
+                        <td><input type="radio" name="analyst" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="analyst" value="0.86" onclick="display()">0.86</td>
+                        <td><input type="radio" name="analyst" value="0.71" onclick="display()">0.71</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Application Experience</td>           
+                        <td><input type="radio" name="appExp" value="1.29" onclick="display()" checked>1.29</td>
+                        <td><input type="radio" name="appExp" value="1.13" onclick="display()">1.13</td>
+                        <td><input type="radio" name="appExp" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="appExp" value="0.91" onclick="display()">0.91</td>
+                        <td><input type="radio" name="appExp" value="0.82" onclick="display()">0.82</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Software engineer capability</td>           
+                        <td><input type="radio" name="engCap" value="1.42" onclick="display()" checked>1.42</td>
+                        <td><input type="radio" name="engCap" value="1.17" onclick="display()">1.17</td>
+                        <td><input type="radio" name="engCap" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="engCap" value="0.86" onclick="display()">0.86</td>
+                        <td><input type="radio" name="engCap" value="0.70" onclick="display()">0.70</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Virtual machine experience</td>           
+                        <td><input type="radio" name="virtual" value="1.21" onclick="display()" checked>1.21</td>
+                        <td><input type="radio" name="virtual" value="1.10" onclick="display()">1.10</td>
+                        <td><input type="radio" name="virtual" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="virtual" value="0.90" onclick="display()">0.90</td>
+                    </tr>
+                    
+                     <tr>
+                        <td>Programming language experience</td>           
+                        <td><input type="radio" name="program" value="1.14" onclick="display()" checked>1.14</td>
+                        <td><input type="radio" name="program" value="1.07" onclick="display()">1.07</td>
+                        <td><input type="radio" name="program" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="program" value="0.95" onclick="display()">0.95</td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><b>Project attributes</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Application of software engineering methods</td>           
+                        <td><input type="radio" name="methods" value="1.24" onclick="display()" checked>1.24</td>
+                        <td><input type="radio" name="methods" value="1.10" onclick="display()">1.10</td>
+                        <td><input type="radio" name="methods" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="methods" value="0.91" onclick="display()">0.91</td>
+                        <td><input type="radio" name="methods" value="0.82" onclick="display()">0.82</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Use of software tools</td>           
+                        <td><input type="radio" name="tools" value="1.24" onclick="display()" checked>1.24</td>
+                        <td><input type="radio" name="tools" value="1.10" onclick="display()">1.10</td>
+                        <td><input type="radio" name="tools" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="tools" value="0.91" onclick="display()">0.91</td>
+                        <td><input type="radio" name="tools" value="0.83" onclick="display()">0.83</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Required development schedule</td>           
+                        <td><input type="radio" name="schedule" value="1.23" onclick="display()" checked>1.23</td>
+                        <td><input type="radio" name="schedule" value="1.08" onclick="display()">1.08</td>
+                        <td><input type="radio" name="schedule" value="1.00" onclick="display()">1.00</td>
+                        <td><input type="radio" name="schedule" value="1.04" onclick="display()">1.04</td>
+                        <td><input type="radio" name="schedule" value="1.10" onclick="display()">1.10</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+            <h3 class="center">EAF: <span id = "eaf">0</span> </h3>
+        </div>
+        
+        
+        <div id="basicCocomo">
+            <div class="center">
+                <h3>Effort Applied: <span id="effortField">0</span>   man-months</h2>
+                <h3>Development Time: <span id="devTimeField">0</span>   months</h2>
+                <h3>People Required: <span id="PeopleReqField">0</span>   </h2>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
