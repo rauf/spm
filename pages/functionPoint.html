@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="../js/fp.js"></script>
+    <title>Funtion Point Analysis</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mainTitle text-center">Function Point Analysis</h2>
+        <table class="tab table-center" cellpadding="12">
+            <thead>
+                <tr class="text-center">
+                    <td></td>
+                    <td><b>Low</b></td>
+                    <td><b>Medium</b></td>
+                    <td><b>High</b></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><b>Internal input</b></td>
+                    <td><input type="number" name="intInput" id="intI3" oninput="displayValues()" /></td>
+                    <td><input type="number" name="intInput" id="intI2" oninput="displayValues()" /></td>
+                    <td><input type="number" name="intInput" id="intI1" oninput="displayValues()" /></td>
+                </tr>
+
+                <tr>
+                    <td><b>External input</b></td>
+                    <td><input type="number" name="extInput" id="extI1" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extInput" id="extI2" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extInput" id="extI3" oninput="displayValues()" /></td>
+                </tr>
+
+                <tr>
+                    <td><b>External File</b></td>
+                    <td><input type="number" name="extFile" id="extF1" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extFile" id="extF2" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extFile" id="extF3" oninput="displayValues()" /></td>
+                </tr>
+
+                <tr>
+                    <td><b>Logical File</b></td>
+                    <td><input type="number" name="logFile" id="logF1" oninput="displayValues()" /></td>
+                    <td><input type="number" name="logFile" id="logF2" oninput="displayValues()" /></td>
+                    <td><input type="number" name="logFile" id="logF3" oninput="displayValues()" /></td>
+                </tr>
+
+                <tr>
+                    <td><b>External Enquiry</b></td>
+                    <td><input type="number" name="extEnq" id="extE1" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extEnq" id="extE2" oninput="displayValues()" /></td>
+                    <td><input type="number" name="extEnq" id="extE3" oninput="displayValues()" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-center">Value of UFP is <span id="ufpBox">0</span></h2>
+
+
+        <table class="tab" cellpadding="7">
+            <thead>
+                <tr class="text-center">
+                    <td></td>
+                    <td><b>No Influence (0)</b></td>
+                    <td><b>Incidental (1)</b></td>
+                    <td><b>Moderate (2)</b></td>
+                    <td><b>Average (3)</b></td>
+                    <td><b>Significant (4)</b></td>
+                    <td><b>Essential (5)</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Does the system require reliable backup and recovery?</td>
+                    <td class="text-center"><input type="radio" name="row1" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row1" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row1" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row1" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row1" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row1" value="5" onclick="displayValues()"></td>
+
+                </tr>
+                <tr>
+                    <td>Is data communication required?</td>
+
+                    <td class="text-center"><input type="radio" name="row2" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row2" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row2" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row2" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row2" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row2" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Are there distributed processing functions?</td>
+
+                    <td class="text-center"><input type="radio" name="row3" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row3" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row3" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row3" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row3" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row3" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is performance critical?</td>
+
+                    <td class="text-center"><input type="radio" name="row4" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row4" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row4" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row4" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row4" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row4" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Will the system run in an existing heavily utilized operational environment?</td>
+
+                    <td class="text-center"><input type="radio" name="row5" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row5" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row5" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row5" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row5" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row5" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Does the system required on line data entry?</td>
+
+                    <td class="text-center"><input type="radio" name="row6" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row6" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row6" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row6" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row6" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row6" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Does the on line data entry require the input transaction to be built over multiple screens or operations?</td>
+
+                    <td class="text-center"><input type="radio" name="row7" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row7" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row7" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row7" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row7" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row7" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Are the master of files updated on line?</td>
+
+                    <td class="text-center"><input type="radio" name="row8" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row8" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row8" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row8" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row8" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row8" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is the inputs, outputs, files or inquiries complex?</td>
+
+                    <td class="text-center"><input type="radio" name="row9" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row9" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row9" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row9" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row9" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row9" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is the internal processing complex?</td>
+
+                    <td class="text-center"><input type="radio" name="row10" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row10" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row10" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row10" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row10" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row10" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is the code designed to be reusable?</td>
+
+                    <td class="text-center"><input type="radio" name="row11" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row11" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row11" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row11" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row11" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row11" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Are conversion and installation included in the design?</td>
+
+                    <td class="text-center"><input type="radio" name="row12" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row12" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row12" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row12" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row12" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row12" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is the system designed for multiple installations in different organisations?</td>
+
+                    <td class="text-center"><input type="radio" name="row13" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row13" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row13" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row13" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row13" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row13" value="5" onclick="displayValues()"></td>
+                </tr>
+                <tr>
+                    <td>Is the application designed to facilitate change and ease of use by the user?</td>
+
+                    <td class="text-center"><input type="radio" name="row14" value="0" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row14" value="1" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row14" value="2" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row14" value="3" onclick="displayValues()" checked></td>
+                    <td class="text-center"><input type="radio" name="row14" value="4" onclick="displayValues()"></td>
+                    <td class="text-center"><input type="radio" name="row14" value="5" onclick="displayValues()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-center">Value of CAF(Complexity Adjustment Factor) is <span id="cafBox">0</span></h2>
+        <h2 class="text-center">Value of FP is <span id="fpBox">0</span></h2>
+
+    </div>
+</body>
+
+</html>
